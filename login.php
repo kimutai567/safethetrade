@@ -1,0 +1,82 @@
+<?php
+$email = strtolower(trim((string) ($_POST['email'] ?? '')));
+$error = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $password = (string) ($_POST['password'] ?? '');
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL) || $password === '') {
+        $error = 'Please enter your email and password.';
+    } else {
+        require __DIR__ . '/db.php';
+        $statement = $pdo->prepare('SELECT id, email, password_hash FROM users WHERE email = :email LIMIT 1');
+        $statement->execute(['email' => $email]);
+        $user = $statement->fetch();
+
+        if ($user && password_verify($password, $user['password_hash'])) {
+            session_start();
+            session_regenerate_id(true);
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['user_email'] = $user['email'];
+            header('Location: index.html#offers');
+            exit;
+        }
+
+        $error = 'Those login details are not recognised.';
+    }
+}
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in | SafeTheTrade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="result-page">
+        <section class="result-card" aria-labelledby="login-title">
+            <div class="brand" style="justify-content: center; margin-bottom: 32px; color: var(--teal);">
+                <span class="brand-mark" aria-hidden="true"><span></span><span></span></span>
+                <span>Safe<span class="brand-accent">The</span>Trade</span>
+            </div>
+            <p class="eyebrow">Secure access</p>
+            <h1 id="login-title">Welcome<br><em>back.</em></h1>
+            <p>Log in to continue to your secure trade dashboard.</p>
+
+            <form method="POST" novalidate>
+                <label class="field">
+                    <span>Email address</span>
+                    <input name="email" type="email" value="<?= htmlspecialchars($email, ENT_QUOTES, 'UTF-8') ?>" placeholder="e.g. satoshi@protonmail.com" autocomplete="email" required>
+                </label>
+                <label class="field">
+                    <span>Password</span>
+                    <span class="input-wrap">
+                        <input class="password-input" name="password" type="password" placeholder="Your password" autocomplete="current-password" required>
+                        <button class="toggle-password" type="button" aria-label="Show password">Show</button>
+                    </span>
+                </label>
+                <?php if ($error !== ''): ?>
+                    <p class="form-message error" role="alert"><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></p>
+                <?php endif; ?>
+                <button class="submit-button" type="submit"><span>Log in</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+            </form>
+
+            <p class="signin">Need an account? <a href="index.html#register">Create one</a></p>
+        </section>
+    </main>
+    <script>
+        document.querySelector('.toggle-password').addEventListener('click', function () {
+            var input = document.querySelector('.password-input');
+            var isVisible = input.type === 'text';
+            input.type = isVisible ? 'password' : 'text';
+            this.textContent = isVisible ? 'Show' : 'Hide';
+            this.setAttribute('aria-label', (isVisible ? 'Show' : 'Hide') + ' password');
+        });
+    </script>
+</body>
+</html>

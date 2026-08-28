@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeTheTrade | Create secure account</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="site-shell">
+        <header class="site-header">
+            <a class="brand" href="#" aria-label="SafeTheTrade home">
+                <span class="brand-mark" aria-hidden="true"><span></span><span></span></span>
+                <span>Safe<span class="brand-accent">The</span>Trade</span>
+            </a>
+            <nav class="nav-links" aria-label="Public navigation">
+                <a href="#offers">Offers</a>
+                <a href="login.php">Log in</a>
+                <a class="nav-signup" href="#register">Sign up</a>
+            </nav>
+        </header>
+
+        <main class="main-content" id="register">
+            <div class="ambient ambient-one" aria-hidden="true"></div>
+            <div class="ambient ambient-two" aria-hidden="true"></div>
+            <section class="register-panel" aria-labelledby="page-title">
+                <div class="eyebrow"><span class="status-dot"></span> Private beta access</div>
+                <h1 id="page-title">Create secure<br><em>account.</em></h1>
+                <p class="intro">Set up your wallet-escrow dashboard in seconds.</p>
+
+                <div class="referral-note">
+                    <span class="referral-icon" aria-hidden="true">↗</span>
+                    <span>You were invited with referral code <code>fa2be851</code>.</span>
+                </div>
+
+                                <form id="register-form" action="register.php" method="POST" novalidate>
+                    <label class="field">
+                        <span>Email address</span>
+                                        <input id="email" name="email" type="email" placeholder="e.g. satoshi@protonmail.com" autocomplete="email" required>
+                    </label>
+                    <label class="field">
+                        <span>Password</span>
+                        <span class="input-wrap">
+                              <input class="password-input" name="password" type="password" placeholder="At least 8 characters" autocomplete="new-password" minlength="8" required>
+                            <button class="toggle-password" type="button" aria-label="Show password">Show</button>
+                        </span>
+                    </label>
+                    <label class="field">
+                        <span>Confirm password</span>
+                        <span class="input-wrap">
+                              <input class="password-input" name="confirm_password" type="password" placeholder="Repeat your password" autocomplete="new-password" minlength="8" required>
+                            <button class="toggle-password" type="button" aria-label="Show password">Show</button>
+                        </span>
+                    </label>
+
+                    <label class="consent">
+                        <input name="terms" type="checkbox" value="1" checked required>
+                        <span class="checkmark" aria-hidden="true"></span>
+                        <span>I agree to the <a href="#terms">Terms of Service</a> and understand my trades are secured cryptographically.</span>
+                    </label>
+                    <p class="form-message" role="status" aria-live="polite"></p>
+                    <button class="submit-button" type="submit"><span>Register account</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+                </form>
+
+                <p class="signin">Already have an account? <a href="login.php">Sign in</a></p>
+            </section>
+        </main>
+
+        <section class="marketplace" id="offers" aria-labelledby="marketplace-title">
+            <div class="marketplace-heading">
+                <div>
+                    <div class="eyebrow"><span class="status-dot"></span> Open marketplace</div>
+                    <h2 id="marketplace-title">Find your next<br><em>safe trade.</em></h2>
+                    <p>Buy and sell digital assets with wallet-escrow protection.</p>
+                </div>
+                <button class="create-offer" type="button" id="open-offer-form"><span>＋</span> Create an offer</button>
+            </div>
+
+            <div class="market-chart" aria-labelledby="market-chart-title">
+                <div class="chart-summary">
+                    <span class="chart-kicker" id="market-chart-title">Market overview · 24h</span>
+                    <div class="chart-price"><strong id="chart-price">$68,420.00</strong><span id="chart-change">+2.84%</span></div>
+                    <span class="chart-caption" id="chart-name">Bitcoin / BTC</span>
+                </div>
+                <div class="chart-visual">
+                    <svg viewBox="0 0 640 170" role="img" aria-label="Bitcoin price chart" preserveAspectRatio="none">
+                        <defs><linearGradient id="chart-fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#c9f15c" stop-opacity=".28"/><stop offset="1" stop-color="#c9f15c" stop-opacity="0"/></linearGradient></defs>
+                        <path class="chart-area" id="chart-area" d="M0 132 L64 112 L128 120 L192 83 L256 99 L320 67 L384 79 L448 42 L512 55 L576 29 L640 20 L640 170 L0 170 Z"></path>
+                        <path class="chart-line" id="chart-line" d="M0 132 L64 112 L128 120 L192 83 L256 99 L320 67 L384 79 L448 42 L512 55 L576 29 L640 20"></path>
+                    </svg>
+                    <div class="chart-times"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>Now</span></div>
+                </div>
+                <div class="chart-assets" role="tablist" aria-label="Market assets">
+                    <button class="chart-asset active" type="button" role="tab" aria-selected="true" data-asset="BTC"><span class="coin-icon btc">₿</span><span><strong>BTC</strong><small>Bitcoin</small></span><b>+2.84%</b></button>
+                    <button class="chart-asset" type="button" role="tab" aria-selected="false" data-asset="ETH"><span class="coin-icon eth">Ξ</span><span><strong>ETH</strong><small>Ethereum</small></span><b>+1.62%</b></button>
+                    <button class="chart-asset" type="button" role="tab" aria-selected="false" data-asset="USDT"><span class="coin-icon usdt">₮</span><span><strong>USDT</strong><small>Tether</small></span><b>+0.04%</b></button>
+                </div>
+            </div>
+
+            <div class="marketplace-tools">
+                <div class="trade-switch" role="tablist" aria-label="Offer type">
+                    <button class="active" type="button" role="tab" aria-selected="true" data-type="buy">Buying</button>
+                    <button type="button" role="tab" aria-selected="false" data-type="sell">Selling</button>
+                </div>
+                <label class="select-control">Crypto asset
+                    <select id="asset-filter" aria-label="Crypto asset">
+                        <option value="all">All coins</option><option value="BTC">BTC</option><option value="ETH">ETH</option><option value="USDT">USDT</option>
+                    </select>
+                </label>
+                <label class="select-control">Payment method
+                    <select id="payment-filter" aria-label="Payment method">
+                        <option value="all">All methods</option><option value="Bank transfer">Bank transfer</option><option value="PayPal">PayPal</option><option value="Gift card">Gift card</option>
+                    </select>
+                </label>
+                <label class="select-control amount-control">Amount
+                    <input id="amount-filter" type="number" min="0" placeholder="Any amount" aria-label="Amount">
+                    <span>USD</span>
+                </label>
+            </div>
+
+            <div class="marketplace-bar">
+                <span><strong id="offer-count">8</strong> offers available</span>
+                <label class="verified-filter"><input id="verified-filter" type="checkbox"><span class="mini-check"></span> Verified sellers only</label>
+                <button class="refresh-button" type="button" id="refresh-offers" aria-label="Refresh offers">↻ <span>Refresh</span></button>
+            </div>
+
+            <div class="offer-list" id="offer-list">
+                <article class="offer-card" data-asset="BTC" data-payment="Bank transfer" data-amount="5000" data-verified="true">
+                    <div class="seller-avatar">AR</div><div class="offer-person"><strong>Aria R.</strong><span><i></i> Verified seller · 98 trades</span></div>
+                    <div class="offer-asset"><strong>BTC</strong><span>Bitcoin</span></div><div class="offer-rate"><strong>$68,420.00</strong><span>per BTC</span></div><div class="offer-payment">Bank transfer</div><button class="trade-button" type="button">View offer <span>↗</span></button>
+                </article>
+                <article class="offer-card" data-asset="ETH" data-payment="PayPal" data-amount="1200" data-verified="true">
+                    <div class="seller-avatar warm">MK</div><div class="offer-person"><strong>Marco K.</strong><span><i></i> Verified seller · 41 trades</span></div>
+                    <div class="offer-asset"><strong>ETH</strong><span>Ethereum</span></div><div class="offer-rate"><strong>$3,842.15</strong><span>per ETH</span></div><div class="offer-payment">PayPal</div><button class="trade-button" type="button">View offer <span>↗</span></button>
+                </article>
+                <article class="offer-card" data-asset="USDT" data-payment="Gift card" data-amount="250" data-verified="false">
+                    <div class="seller-avatar blue">JL</div><div class="offer-person"><strong>Jamie L.</strong><span><i class="unverified"></i> New seller · 6 trades</span></div>
+                    <div class="offer-asset"><strong>USDT</strong><span>Tether</span></div><div class="offer-rate"><strong>$1.01</strong><span>per USDT</span></div><div class="offer-payment">Gift card</div><button class="trade-button" type="button">View offer <span>↗</span></button>
+                </article>
+                <article class="offer-card" data-asset="BTC" data-payment="PayPal" data-amount="2400" data-verified="true">
+                    <div class="seller-avatar warm">NS</div><div class="offer-person"><strong>Nia S.</strong><span><i></i> Verified seller · 73 trades</span></div>
+                    <div class="offer-asset"><strong>BTC</strong><span>Bitcoin</span></div><div class="offer-rate"><strong>$68,510.00</strong><span>per BTC</span></div><div class="offer-payment">PayPal</div><button class="trade-button" type="button">View offer <span>↗</span></button>
+                </article>
+                <article class="offer-card" data-asset="ETH" data-payment="Bank transfer" data-amount="3500" data-verified="true">
+                    <div class="seller-avatar">DO</div><div class="offer-person"><strong>Daniel O.</strong><span><i></i> Verified seller · 126 trades</span></div>
+                    <div class="offer-asset"><strong>ETH</strong><span>Ethereum</span></div><div class="offer-rate"><strong>$3,816.40</strong><span>per ETH</span></div><div class="offer-payment">Bank transfer</div><button class="trade-button" type="button">View offer <span>↗</span></button>
+                </article>
+                <article class="offer-card" data-asset="USDT" data-payment="Bank transfer" data-amount="800" data-verified="true">
+                    <div class="seller-avatar blue">PK</div><div class="offer-person"><strong>Priya K.</strong><span><i></i> Verified seller · 58 trades</span></div>
+                    <div class="offer-asset"><strong>USDT</strong><span>Tether</span></div><div class="offer-rate"><strong>$1.00</strong><span>per USDT</span></div><div class="offer-payment">Bank transfer</div><button class="trade-button" type="button">View offer <span>↗</span></button>
+                </article>
+                <article class="offer-card" data-asset="BTC" data-payment="Gift card" data-amount="650" data-verified="false">
+                    <div class="seller-avatar warm">EB</div><div class="offer-person"><strong>Ethan B.</strong><span><i class="unverified"></i> New seller · 12 trades</span></div>
+                    <div class="offer-asset"><strong>BTC</strong><span>Bitcoin</span></div><div class="offer-rate"><strong>$68,735.00</strong><span>per BTC</span></div><div class="offer-payment">MPESA</div><button class="trade-button" type="button">View offer <span>↗</span></button>
+                </article>
+                <article class="offer-card" data-asset="ETH" data-payment="PayPal" data-amount="1750" data-verified="true">
+                    <div class="seller-avatar blue">LW</div><div class="offer-person"><strong>Leah W.</strong><span><i></i> Verified seller · 89 trades</span></div>
+                    <div class="offer-asset"><strong>ETH</strong><span>Ethereum</span></div><div class="offer-rate"><strong>$3,829.90</strong><span>per ETH</span></div><div class="offer-payment">PayPal</div><button class="trade-button" type="button">View offer <span>↗</span></button>
+                </article>
+            </div>
+            <p class="empty-offers" id="empty-offers">No offers match these filters.</p>
+        </section>
+
+        <div class="offer-modal" id="offer-modal" hidden>
+            <div class="offer-modal-backdrop" data-close-offer></div>
+            <section class="offer-dialog" role="dialog" aria-modal="true" aria-labelledby="offer-dialog-title">
+                <button class="close-offer" type="button" aria-label="Close offer form" data-close-offer>&times;</button>
+                <div class="eyebrow"><span class="status-dot"></span> New marketplace offer</div>
+                <h2 id="offer-dialog-title">Create an offer.</h2>
+                <p class="offer-dialog-intro">Set your terms so another trader can find and review them.</p>
+                <form id="offer-form" novalidate>
+                    <div class="offer-form-grid">
+                        <label class="field">Trade type
+                            <select name="trade_type" required>
+                                <option value="sell">Selling crypto</option>
+                                <option value="buy">Buying crypto</option>
+                            </select>
+                        </label>
+                        <label class="field">Crypto asset
+                            <select name="asset" required>
+                                <option value="BTC">BTC</option>
+                                <option value="ETH">ETH</option>
+                                <option value="USDT">USDT</option>
+                            </select>
+                        </label>
+                        <label class="field">Amount in USD
+                            <input name="amount" type="number" min="1" step="0.01" placeholder="e.g. 1,000" required>
+                        </label>
+                        <label class="field">Rate per coin
+                            <input name="rate" type="number" min="0.01" step="0.01" placeholder="e.g. 68,420" required>
+                        </label>
+                    </div>
+                    <label class="field">Payment method
+                        <select name="payment_method" required>
+                            <option value="Bank transfer">Bank transfer</option>
+                            <option value="PayPal">PayPal</option>
+                            <option value="Gift card">Gift card</option>
+                            <option value="MPESA">MPESA</option>
+    
+                        </select>
+                    </label>
+                    <p class="form-message" id="offer-form-message" role="status" aria-live="polite"></p>
+                    <button class="submit-button" type="submit"><span>Publish offer</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+                </form>
+            </section>
+        </div>
+
+        <div class="offer-modal" id="details-modal" hidden>
+            <div class="offer-modal-backdrop" data-close-details></div>
+            <section class="offer-dialog details-dialog" role="dialog" aria-modal="true" aria-labelledby="details-title">
+                <button class="close-offer" type="button" aria-label="Close offer details" data-close-details>&times;</button>
+                <div class="eyebrow"><span class="status-dot"></span> Offer details</div>
+                <div class="details-heading">
+                    <div class="seller-avatar" id="details-avatar">AR</div>
+                    <div><h2 id="details-title">Bitcoin offer</h2><p id="details-seller">Aria R. · Verified seller</p></div>
+                </div>
+                <div class="details-grid">
+                    <div><span>Asset</span><strong id="details-asset">BTC</strong></div>
+                    <div><span>Available amount</span><strong id="details-amount">$5,000.00</strong></div>
+                    <div><span>Rate</span><strong id="details-rate">$68,420.00</strong></div>
+                    <div><span>Payment method</span><strong id="details-payment">Bank transfer</strong></div>
+                </div>
+                <p class="details-note">Funds are held in wallet escrow while you complete the trade.</p>
+                <p class="form-message" id="trade-message" role="status" aria-live="polite"></p>
+                <button class="submit-button" type="button" id="start-trade"><span>Start trade</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+            </section>
+        </div>
+
+        <footer class="site-footer">
+            <span>www.safethetrade.com <span class="copyright">©</span> 2026</span>
+            <nav aria-label="Public pages">
+                <a href="#calculator">Rate calculator</a>
+                <a href="#status"><span class="footer-dot"></span> System status</a>
+                <a href="#transparency">Transparency</a>
+                <a href="#api">API docs</a>
+                <a href="#fees">Fees</a>
+                <a href="#faq">FAQ</a>
+                <a href="#terms">Terms</a>
+                <a href="#privacy">Privacy</a>
+            </nav>
+        </footer>
+    </div>
+
+    <script>
+        document.querySelectorAll('.toggle-password').forEach(function (button) {
+            button.addEventListener('click', function () {
+                var input = button.closest('.input-wrap').querySelector('input');
+                var isVisible = input.type === 'text';
+                input.type = isVisible ? 'password' : 'text';
+                button.textContent = isVisible ? 'Show' : 'Hide';
+                button.setAttribute('aria-label', (isVisible ? 'Show' : 'Hide') + ' password');
+            });
+        });
+
+        document.getElementById('register-form').addEventListener('submit', function (event) {
+            var form = event.currentTarget;
+            var message = form.querySelector('.form-message');
+            var passwords = form.querySelectorAll('.password-input');
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                message.textContent = 'Please complete each field to continue.';
+                message.className = 'form-message error';
+            } else if (passwords[0].value !== passwords[1].value) {
+                event.preventDefault();
+                message.textContent = 'Passwords do not match yet.';
+                message.className = 'form-message error';
+            }
+        });
+
+        var filterInputs = [document.getElementById('asset-filter'), document.getElementById('payment-filter'), document.getElementById('amount-filter'), document.getElementById('verified-filter')];
+        function filterOffers() {
+            var asset = document.getElementById('asset-filter').value;
+            var payment = document.getElementById('payment-filter').value;
+            var amount = Number(document.getElementById('amount-filter').value) || 0;
+            var verifiedOnly = document.getElementById('verified-filter').checked;
+            var visible = 0;
+            document.querySelectorAll('.offer-card').forEach(function (card) {
+                var matches = (asset === 'all' || card.dataset.asset === asset) && (payment === 'all' || card.dataset.payment === payment) && Number(card.dataset.amount) >= amount && (!verifiedOnly || card.dataset.verified === 'true');
+                card.hidden = !matches;
+                if (matches) visible += 1;
+            });
+            document.getElementById('offer-count').textContent = visible;
+            document.getElementById('empty-offers').hidden = visible !== 0;
+        }
+        filterInputs.forEach(function (input) { input.addEventListener('input', filterOffers); input.addEventListener('change', filterOffers); });
+        document.querySelectorAll('.trade-switch button').forEach(function (button) { button.addEventListener('click', function () { document.querySelectorAll('.trade-switch button').forEach(function (tab) { tab.classList.remove('active'); tab.setAttribute('aria-selected', 'false'); }); button.classList.add('active'); button.setAttribute('aria-selected', 'true'); }); });
+        document.getElementById('refresh-offers').addEventListener('click', function () { this.classList.add('spinning'); filterOffers(); setTimeout(function () { document.getElementById('refresh-offers').classList.remove('spinning'); }, 450); });
+
+        var offerModal = document.getElementById('offer-modal');
+        var detailsModal = document.getElementById('details-modal');
+        var offerForm = document.getElementById('offer-form');
+        var offerMessage = document.getElementById('offer-form-message');
+        document.getElementById('open-offer-form').addEventListener('click', function () {
+            offerModal.hidden = false;
+            offerForm.querySelector('input').focus();
+        });
+        offerModal.querySelectorAll('[data-close-offer]').forEach(function (element) {
+            element.addEventListener('click', function () { offerModal.hidden = true; });
+        });
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && !offerModal.hidden) { offerModal.hidden = true; }
+        });
+        offerForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            if (!offerForm.checkValidity()) {
+                offerMessage.textContent = 'Complete each offer detail to continue.';
+                offerMessage.className = 'form-message error';
+                return;
+            }
+            var formData = new FormData(offerForm);
+            var asset = formData.get('asset');
+            var amount = Number(formData.get('amount'));
+            var rate = Number(formData.get('rate'));
+            var payment = formData.get('payment_method');
+            var offerCard = document.createElement('article');
+            offerCard.className = 'offer-card';
+            offerCard.dataset.asset = asset;
+            offerCard.dataset.payment = payment;
+            offerCard.dataset.amount = amount;
+            offerCard.dataset.verified = 'false';
+            offerCard.innerHTML = '<div class="seller-avatar blue">YO</div><div class="offer-person"><strong>You</strong><span><i class="unverified"></i> New offer</span></div><div class="offer-asset"><strong>' + asset + '</strong><span>' + (asset === 'BTC' ? 'Bitcoin' : asset === 'ETH' ? 'Ethereum' : 'Tether') + '</span></div><div class="offer-rate"><strong>$' + rate.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '</strong><span>per ' + asset + '</span></div><div class="offer-payment">' + payment + '</div><button class="trade-button" type="button">View offer <span>↗</span></button>';
+            document.getElementById('offer-list').prepend(offerCard);
+            offerForm.reset();
+            offerMessage.textContent = 'Your offer is now live in the marketplace.';
+            offerMessage.className = 'form-message success';
+            offerModal.hidden = true;
+            filterOffers();
+        });
+
+        function showOfferDetails(card) {
+            var seller = card.querySelector('.offer-person strong').textContent;
+            var sellerStatus = card.querySelector('.offer-person span').textContent.replace(/^\s*/, '');
+            var asset = card.querySelector('.offer-asset strong').textContent;
+            var amount = Number(card.dataset.amount);
+            var rate = card.querySelector('.offer-rate strong').textContent;
+            document.getElementById('details-avatar').textContent = card.querySelector('.seller-avatar').textContent;
+            document.getElementById('details-avatar').className = card.querySelector('.seller-avatar').className;
+            document.getElementById('details-title').textContent = asset + ' offer';
+            document.getElementById('details-seller').textContent = seller + ' · ' + sellerStatus;
+            document.getElementById('details-asset').textContent = asset;
+            document.getElementById('details-amount').textContent = '$' + amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            document.getElementById('details-rate').textContent = rate;
+            document.getElementById('details-payment').textContent = card.querySelector('.offer-payment').textContent;
+            document.getElementById('trade-message').textContent = '';
+            detailsModal.hidden = false;
+            document.getElementById('start-trade').focus();
+        }
+        document.getElementById('offer-list').addEventListener('click', function (event) {
+            var button = event.target.closest('.trade-button');
+            if (button) { showOfferDetails(button.closest('.offer-card')); }
+        });
+        detailsModal.querySelectorAll('[data-close-details]').forEach(function (element) {
+            element.addEventListener('click', function () { detailsModal.hidden = true; });
+        });
+        document.getElementById('start-trade').addEventListener('click', function () {
+            var tradeMessage = document.getElementById('trade-message');
+            tradeMessage.textContent = 'Trade request started. Secure checkout is coming next.';
+            tradeMessage.className = 'form-message success';
+        });
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && !detailsModal.hidden) { detailsModal.hidden = true; }
+        });
+
+        var chartData = {
+            BTC: { price: '$68,420.00', change: '+2.84%', name: 'Bitcoin / BTC', points: 'M0 132 L64 112 L128 120 L192 83 L256 99 L320 67 L384 79 L448 42 L512 55 L576 29 L640 20' },
+            ETH: { price: '$3,842.15', change: '+1.62%', name: 'Ethereum / ETH', points: 'M0 140 L64 126 L128 132 L192 104 L256 112 L320 88 L384 96 L448 62 L512 73 L576 52 L640 43' },
+            USDT: { price: '$1.01', change: '+0.04%', name: 'Tether / USDT', points: 'M0 88 L64 94 L128 86 L192 92 L256 82 L320 88 L384 78 L448 83 L512 73 L576 78 L640 69' }
+        };
+        document.querySelectorAll('.chart-asset').forEach(function (button) {
+            button.addEventListener('click', function () {
+                var asset = button.dataset.asset;
+                var data = chartData[asset];
+                document.querySelectorAll('.chart-asset').forEach(function (tab) { tab.classList.remove('active'); tab.setAttribute('aria-selected', 'false'); });
+                button.classList.add('active'); button.setAttribute('aria-selected', 'true');
+                document.getElementById('chart-price').textContent = data.price;
+                document.getElementById('chart-change').textContent = data.change;
+                document.getElementById('chart-name').textContent = data.name;
+                document.getElementById('chart-line').setAttribute('d', data.points);
+                document.getElementById('chart-area').setAttribute('d', data.points + ' L640 170 L0 170 Z');
+                document.querySelector('svg').setAttribute('aria-label', data.name + ' price chart');
+            });
+        });
+    </script>
+
+    <a
+        class="whatsapp-button"
+        href="https://wa.me/254702346235?text=Hello%2C%20I%20have%20a%20question"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with us on WhatsApp"
+    >
+        💬 WhatsApp
+    </a>
+</body>
+</html>
