@@ -128,11 +128,11 @@
             </div>
 
             <div class="offer-list" id="offer-list">
-                <article class="offer-card" data-trade-type="sell" data-asset="BTC" data-payment="Bank transfer" data-amount="5000" data-verified="true">
+                <article class="offer-card" data-asset="BTC" data-payment="Bank transfer" data-amount="5000" data-verified="true">
                     <div class="seller-avatar">AR</div><div class="offer-person"><strong>Aria R.</strong><span><i></i> Verified seller · 98 trades</span></div>
                     <div class="offer-asset"><strong>BTC</strong><span>Bitcoin</span></div><div class="offer-rate"><strong>$68,420.00</strong><span>per BTC</span></div><div class="offer-payment">Bank transfer</div><button class="trade-button" type="button">View offer <span>↗</span></button>
                 </article>
-                <article class="offer-card" data-trade-type="sell" data-asset="ETH" data-payment="PayPal" data-amount="1200" data-verified="true">
+                <article class="offer-card" data-asset="ETH" data-payment="PayPal" data-amount="1200" data-verified="true">
                     <div class="seller-avatar warm">MK</div><div class="offer-person"><strong>Marco K.</strong><span><i></i> Verified seller · 41 trades</span></div>
                     <div class="offer-asset"><strong>ETH</strong><span>Ethereum</span></div><div class="offer-rate"><strong>$3,842.15</strong><span>per ETH</span></div><div class="offer-payment">PayPal</div><button class="trade-button" type="button">View offer <span>↗</span></button>
                 </article>
@@ -312,7 +312,6 @@
         });
 
         var filterInputs = [document.getElementById('asset-filter'), document.getElementById('payment-filter'), document.getElementById('amount-filter'), document.getElementById('verified-filter')];
-        var activeTradeType = 'buy';
         function filterOffers() {
             var asset = document.getElementById('asset-filter').value;
             var payment = document.getElementById('payment-filter').value;
@@ -320,8 +319,7 @@
             var verifiedOnly = document.getElementById('verified-filter').checked;
             var visible = 0;
             document.querySelectorAll('.offer-card').forEach(function (card) {
-                var matchesTradeType = activeTradeType === 'buy' || card.dataset.tradeType === 'sell';
-                var matches = matchesTradeType && (asset === 'all' || card.dataset.asset === asset) && (payment === 'all' || card.dataset.payment === payment) && Number(card.dataset.amount) >= amount && (!verifiedOnly || card.dataset.verified === 'true');
+                var matches = (asset === 'all' || card.dataset.asset === asset) && (payment === 'all' || card.dataset.payment === payment) && Number(card.dataset.amount) >= amount && (!verifiedOnly || card.dataset.verified === 'true');
                 card.hidden = !matches;
                 if (matches) visible += 1;
             });
@@ -329,7 +327,7 @@
             document.getElementById('empty-offers').hidden = visible !== 0;
         }
         filterInputs.forEach(function (input) { input.addEventListener('input', filterOffers); input.addEventListener('change', filterOffers); });
-        document.querySelectorAll('.trade-switch button').forEach(function (button) { button.addEventListener('click', function () { activeTradeType = button.dataset.type; document.querySelectorAll('.trade-switch button').forEach(function (tab) { tab.classList.remove('active'); tab.setAttribute('aria-selected', 'false'); }); button.classList.add('active'); button.setAttribute('aria-selected', 'true'); filterOffers(); }); });
+        document.querySelectorAll('.trade-switch button').forEach(function (button) { button.addEventListener('click', function () { document.querySelectorAll('.trade-switch button').forEach(function (tab) { tab.classList.remove('active'); tab.setAttribute('aria-selected', 'false'); }); button.classList.add('active'); button.setAttribute('aria-selected', 'true'); }); });
         document.getElementById('refresh-offers').addEventListener('click', function () { this.classList.add('spinning'); filterOffers(); setTimeout(function () { document.getElementById('refresh-offers').classList.remove('spinning'); }, 450); });
 
         var offerModal = document.getElementById('offer-modal');
@@ -354,14 +352,12 @@
                 return;
             }
             var formData = new FormData(offerForm);
-            var tradeType = formData.get('trade_type');
             var asset = formData.get('asset');
             var amount = Number(formData.get('amount'));
             var rate = Number(formData.get('rate'));
             var payment = formData.get('payment_method');
             var offerCard = document.createElement('article');
             offerCard.className = 'offer-card';
-            offerCard.dataset.tradeType = tradeType;
             offerCard.dataset.asset = asset;
             offerCard.dataset.payment = payment;
             offerCard.dataset.amount = amount;
