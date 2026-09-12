@@ -29,6 +29,7 @@ XAMPP is not required for production. XAMPP is only one option for local testing
 3. Open phpMyAdmin at `http://localhost/phpmyadmin`.
 4. Import `schema.sql` into phpMyAdmin.
 5. Check the database settings in `db.php`:
+6. Use chrome , Edge, firefox or Brave.
 
    ```php
    $host = '127.0.0.1';
@@ -37,7 +38,7 @@ XAMPP is not required for production. XAMPP is only one option for local testing
    $password = '';
    ```
 
-6. Open the site through Apache:
+7. Open the site through Apache:
 
    ```text
    http://localhost/Safe the trade prototype/index.html
