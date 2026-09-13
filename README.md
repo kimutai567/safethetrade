@@ -53,6 +53,7 @@ Do not open the PHP files by double-clicking them. PHP must run through a web se
 3. Upload all project files to the site's `public_html` folder.
 4. Update `db.php` with the hosting database host, name, username, and password.
 5. Open the domain and test registration and login.
+6. scrow avalable for security of the traders.
 
 ## User Flow
 
