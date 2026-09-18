@@ -68,3 +68,4 @@ Do not open the PHP files by double-clicking them. PHP must run through a web se
 - Use HTTPS on the live website.
 - The marketplace content is currently prototype data and is not connected to live trading services.
 - Before production use, add authorization checks to private pages and implement logout and session timeout.
+-Intergartion of payment plaform across the world with documentation on how to use it.
