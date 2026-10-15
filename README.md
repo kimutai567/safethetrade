@@ -28,13 +28,14 @@ XAMPP is not required for production. XAMPP is only one option for local testing
 2. Copy this project folder into XAMPP's `htdocs` directory.
 3. Open phpMyAdmin at `http://localhost/phpmyadmin`.
 4. Import `schema.sql` into phpMyAdmin.
-5. Check the database settings in `db.php`:
+5. The local defaults in `db.php` connect to `127.0.0.1`, database `safethetrade`, user `root`, and an empty password. Override them with environment variables if your local setup uses different values:
 
-   ```php
-   $host = '127.0.0.1';
-   $dbname = 'safethetrade';
-   $username = 'root';
-   $password = '';
+   ```text
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_NAME=safethetrade
+   DB_USER=root
+   DB_PASSWORD=
    ```
 
 6. Open the site through Apache:
@@ -50,7 +51,7 @@ Do not open the PHP files by double-clicking them. PHP must run through a web se
 1. Create a MySQL database and database user in the hosting control panel.
 2. Import `schema.sql` into the new database.
 3. Upload all project files to the site's `public_html` folder.
-4. Update `db.php` with the hosting database host, name, username, and password.
+4. Configure the `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, and `DB_PASSWORD` environment variables in the hosting control panel. The local defaults are only for development; do not commit production credentials.
 5. Open the domain and test registration and login.
 
 ## User Flow
