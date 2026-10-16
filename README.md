@@ -64,7 +64,7 @@ Do not open the PHP files by double-clicking them. PHP must run through a web se
 
 ## Important Notes
 
-- Keep database credentials private.
+- Keep database credentials private and secure.
 - Use a strong database password in production.
 - Use HTTPS on the live website.
 - The marketplace content is currently prototype data and is not connected to live trading services.
