@@ -1,6 +1,8 @@
 # SafeTheTrade
 
 SafeTheTrade is a PHP and MySQL website prototype for secure digital-asset trading. It includes a public marketplace, account registration, and login flow.
+All payments platform in the world and all the cryptocurrencies are available.
+#Connect with traders worldwide.
 
 ## Project Files
 
